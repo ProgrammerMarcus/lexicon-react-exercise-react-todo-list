@@ -1,3 +1,18 @@
 .todo {
-    background-color: red;
+    background-color: #00000022;
+    display: grid;
+    grid-template: 1fr / 2fr 1fr;
+    align-items: center;
+    .buttons {
+        display: grid;
+        grid-template: min-content / repeat(4, min-content);
+        gap: 0.5rem;
+        .btn {
+            background-color: red;
+        }
+    }
+    .text {
+        display: grid;
+        grid-template: repeat(3, min-content) / 1fr;
+    }
 }
