@@ -1,12 +1,7 @@
-import "./ToDo.css"
+import Note from "../interfaces/Note";
+import "./Todo.css"
 
-interface ToDoProp {
-    name: string;
-    date: string;
-    task: string;
-}
-
-export function ToDo({ name, date, task }: ToDoProp) {
+export function ToDo({ id, name, date, task }: Note) {
     return (
         <>
             <div className="todo">
@@ -17,16 +12,16 @@ export function ToDo({ name, date, task }: ToDoProp) {
                 </div>
                 <div className="buttons">
                     <button type="button" className="btn">
-                        Up
+                        Up{id}
                     </button>
                     <button type="button" className="btn">
-                        Down
+                        Down{id}
                     </button>
                     <button type="button" className="btn">
-                        Done
+                        Done{id}
                     </button>
                     <button type="button" className="btn">
-                        Remove
+                        Remove{id}
                     </button>
                 </div>
             </div>
