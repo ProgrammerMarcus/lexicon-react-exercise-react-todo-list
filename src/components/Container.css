@@ -7,7 +7,7 @@
     border-radius: 5px;
     backdrop-filter: var(--backdrop);
     border: var(--border);
-    height: 80svh;
+    min-height: 60svh;
     grid-template: min-content / 1fr;
     place-content: start;
 }

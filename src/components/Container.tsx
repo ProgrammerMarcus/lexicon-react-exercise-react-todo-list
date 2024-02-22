@@ -1,14 +1,20 @@
 import ToDo from "./Todo";
 import "./Container.css";
 import Note from "../interfaces/Note"
-import NoteListProp from "../interfaces/NoteListProps";
+import InterfaceControls from "../interfaces/InterfaceControls";
 
-export function Container({noteList}: NoteListProp) {
+interface ContainerProps {
+    controls: InterfaceControls;
+    noteList: Note[];
+}
+
+export function Container({controls, noteList}: ContainerProps) {
+
     return (
         <>
             <div className="container">
                 {noteList.map((d: Note) => (
-                    <ToDo key={d.id} id={d.id} name={d.name} date={d.date} task={d.task}></ToDo>
+                    <ToDo controls={controls} key={d.id} id={d.id} name={d.name} date={d.date} task={d.task}></ToDo>
                 ))}
             </div>
         </>

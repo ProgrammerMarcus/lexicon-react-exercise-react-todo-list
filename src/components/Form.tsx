@@ -10,8 +10,9 @@ export function Form({ submit }: SubmitProps) {
 
     const submitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const time = new Date;
         submit({
-            id: 999,
+            id: String(time.getTime()) + Math.random(),
             name: name,
             task: task,
             date: date,
