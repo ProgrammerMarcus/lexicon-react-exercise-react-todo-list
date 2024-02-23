@@ -24,6 +24,9 @@
             transition: 0.3s;
             color: var(--btn);
         }
+        .hue {
+            filter: hue-rotate(180deg);
+        }
     }
     .text {
         display: grid;

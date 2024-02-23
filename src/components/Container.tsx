@@ -13,8 +13,8 @@ export function Container({controls, noteList}: ContainerProps) {
     return (
         <>
             <div className="container">
-                {noteList.map((d: Note) => (
-                    <ToDo controls={controls} key={d.id} id={d.id} name={d.name} date={d.date} task={d.task}></ToDo>
+                {noteList.map((note: Note) => (
+                    <ToDo controls={controls} key={note.id} note={note}></ToDo>
                 ))}
             </div>
         </>

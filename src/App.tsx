@@ -12,30 +12,35 @@ export function App() {
             name: "Firstname Lastname1",
             date: "2024-02-13",
             task: "Brush teeth",
+            done: false,
         },
         {
             id: "153",
             name: "Firstname Lastname2",
             date: "2024-02-13",
             task: "Brush teeth again",
+            done: false,
         },
         {
             id: "53541",
             name: "Firstname Lastname3",
             date: "2024-02-13",
             task: "Brush teeth again",
+            done: false,
         },
         {
             id: "12313",
             name: "Firstname Lastname4",
             date: "2024-02-13",
             task: "Brush teeth again",
+            done: false,
         },
         {
             id: "12321",
             name: "Firstname Lastname5",
             date: "2024-02-13",
             task: "Brush teeth again",
+            done: false,
         },
     ];
 
@@ -53,6 +58,8 @@ export function App() {
         // need to make a copy of target to prevent issue
         // content of useState should not be altered directly
         // and copies should be used and returned instead
+        // actually, do not alter ANY values in useState,
+        // only replace with new one
         up: (id: string) => {
             setNoteList((oldNotes) => {
                 const index = oldNotes.findIndex((n) => n.id === id);
@@ -78,7 +85,16 @@ export function App() {
             });
         },
         done: (id: string) => {
-            console.log(id);
+            setNoteList((oldNotes) => {
+                const copyNotes = [...oldNotes];
+                const index = copyNotes.findIndex((n) => n.id === id);
+                if (index > -1) {
+                    const copy = { ...copyNotes[index] };
+                    copy.done = !copy.done;
+                    copyNotes[index] = copy;
+                }
+                return [...copyNotes];
+            });
         },
     };
 

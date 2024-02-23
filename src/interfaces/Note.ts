@@ -3,6 +3,7 @@ export interface Note {
     name: string;
     date: string;
     task: string;
+    done: boolean;
 }
 
 export default Note;
