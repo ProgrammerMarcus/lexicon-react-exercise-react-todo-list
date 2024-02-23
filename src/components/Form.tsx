@@ -6,16 +6,16 @@ import { useState } from "react";
 export function Form({ submit }: SubmitProps) {
     const [name, setName] = useState("");
     const [task, setTask] = useState("");
-    const [date, setDate] = useState("");
 
     const submitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const time = new Date;
+        const time = new Date();
         submit({
             id: String(time.getTime()) + Math.random(),
             name: name,
             task: task,
-            date: date,
+            date: new Date().toLocaleDateString(),
+            done: false,
         });
     };
 
@@ -29,6 +29,7 @@ export function Form({ submit }: SubmitProps) {
                     onChange={(event) => {
                         setName(event.target.value);
                     }}
+                    required
                     type="text"
                     name="form-name"
                     id="form-name"
@@ -38,24 +39,13 @@ export function Form({ submit }: SubmitProps) {
                     Enter what to do:
                 </label>
                 <input
+                    required
                     onChange={(event) => {
                         setTask(event.target.value);
                     }}
                     type="text"
                     name="form-task"
                     id="form-task"
-                    className="input"
-                />
-                <label htmlFor="form-date" className="label">
-                    Enter date:
-                </label>
-                <input
-                    onChange={(event) => {
-                        setDate(event.target.value);
-                    }}
-                    type="text"
-                    name="form-date"
-                    id="form-date"
                     className="input"
                 />
                 <button type="submit" className="submit">

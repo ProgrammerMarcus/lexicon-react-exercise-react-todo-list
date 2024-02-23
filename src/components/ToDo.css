@@ -22,10 +22,10 @@
         .btn:hover {
             background-color: var(--focus-color);
             transition: 0.3s;
-            color: var(--btn);
+            color: #ffffffaa;
         }
         .hue {
-            filter: hue-rotate(180deg);
+            filter: hue-rotate(120deg) brightness(1.5);
         }
     }
     .text {

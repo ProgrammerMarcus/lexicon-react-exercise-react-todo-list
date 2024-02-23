@@ -30,4 +30,7 @@
         background-color: var(--focus-color);
         transition: 0.3s;
     }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(100%);
+    }
 }

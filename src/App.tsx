@@ -100,6 +100,7 @@ export function App() {
 
     return (
         <>
+            <div className="background"></div>
             <Form submit={add}></Form>
             <Container controls={controls} noteList={noteList}></Container>
         </>
