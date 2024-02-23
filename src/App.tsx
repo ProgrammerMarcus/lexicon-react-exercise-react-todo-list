@@ -49,19 +49,33 @@ export function App() {
         remove: (id: string) => {
             setNoteList((oldNotes) => oldNotes.filter((n) => n.id !== id));
         },
+        // code runs twice when in strict mode or something
+        // need to make a copy of target to prevent issue
+        // content of useState should not be altered directly
+        // and copies should be used and returned instead
         up: (id: string) => {
             setNoteList((oldNotes) => {
                 const index = oldNotes.findIndex((n) => n.id === id);
+                const copyNotes = [...oldNotes];
                 if (index > 0) {
-                    const copy = oldNotes[index - 1];
-                    oldNotes[index - 1] = oldNotes[index];
-                    oldNotes[index] = copy;
+                    const copy = copyNotes[index - 1];
+                    copyNotes[index - 1] = copyNotes[index];
+                    copyNotes[index] = copy;
                 }
-                return [...oldNotes];
+                return [...copyNotes];
             });
         },
         down: (id: string) => {
-            console.log(id);
+            setNoteList((oldNotes) => {
+                const index = oldNotes.findIndex((n) => n.id === id);
+                const copyNotes = [...oldNotes];
+                if (index < copyNotes.length - 1) {
+                    const copy = copyNotes[index + 1];
+                    copyNotes[index + 1] = copyNotes[index];
+                    copyNotes[index] = copy;
+                }
+                return [...copyNotes];
+            });
         },
         done: (id: string) => {
             console.log(id);
