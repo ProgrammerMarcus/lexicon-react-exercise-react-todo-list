@@ -13,7 +13,14 @@ export function Container({ controls, noteList }: ContainerProps) {
         <>
             <div className="container">
                 <p className="sorting">
-                    Sort by: <span className="date sort">date</span> or <span className="author sort">author</span>
+                    Sort by:{" "}
+                    <span onClick={controls.sortDate} className="date sort">
+                        date
+                    </span>
+                    {" or "}
+                    <span onClick={controls.sortAuthor} className="author sort">
+                        author
+                    </span>
                 </p>
                 {noteList.map((note: Note) => (
                     <ToDo controls={controls} key={note.id} note={note}></ToDo>

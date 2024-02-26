@@ -10,35 +10,35 @@ export function App() {
         {
             id: "0",
             name: "Firstname Lastname1",
-            date: "2024-02-13",
+            date: "2024-02-10",
             task: "Brush teeth",
             done: false,
         },
         {
             id: "153",
             name: "Firstname Lastname2",
-            date: "2024-02-13",
+            date: "2024-02-18",
             task: "Brush teeth again",
             done: false,
         },
         {
             id: "53541",
-            name: "Firstname Lastname3",
-            date: "2024-02-13",
+            name: "Firstname Lastname7",
+            date: "2025-02-13",
             task: "Brush teeth again",
             done: false,
         },
         {
             id: "12313",
             name: "Firstname Lastname4",
-            date: "2024-02-13",
+            date: "2024-02-05",
             task: "Brush teeth again",
             done: false,
         },
         {
             id: "12321",
             name: "Firstname Lastname5",
-            date: "2024-02-13",
+            date: "2024-01-24",
             task: "Brush teeth again",
             done: false,
         },
@@ -94,6 +94,16 @@ export function App() {
                     copyNotes[index] = copy;
                 }
                 return [...copyNotes];
+            });
+        },
+        sortDate: () => {
+            setNoteList((oldNotes) => {
+                return [...oldNotes].sort((a, b) => a.date.localeCompare(b.date));
+            });
+        },
+        sortAuthor: () => {
+            setNoteList((oldNotes) => {
+                return [...oldNotes].sort((a, b) => a.name.localeCompare(b.name));
             });
         },
     };
