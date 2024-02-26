@@ -26,7 +26,7 @@ export function ToDo({ controls, note }: ToDoProps) {
             <div className="todo">
                 <div className="text">
                     <span className="name">{note.name}</span>
-                    <span className="task">{note.task}</span>
+                    <textarea className="task" defaultValue={note.task} rows={1} />
                     <span className="date">{note.date}</span>
                 </div>
                 <div className="buttons" onClick={(e) => clickHandler(e)}>
